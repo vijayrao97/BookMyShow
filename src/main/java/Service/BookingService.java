@@ -25,7 +25,7 @@ public class BookingService {
 
     @Transactional(isolation = Isolation.SERIALIZABLE)
     public Booking CreateBooking(Long userId, List<Long> showSeat, Long showId){
-                /*
+        /*
 
         1. check user if user exists..
         2. check if show exist..
