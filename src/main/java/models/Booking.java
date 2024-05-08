@@ -23,11 +23,9 @@ public class Booking extends BaseClass{
     private List<Payment> payments;
     @Enumerated(EnumType.ORDINAL)
     private BookingStatus bookingStatus;
-
     /*
     * Mapping
     * Booking - User -> 1 : 1
     *                   M : 1
     * */
-
 }
