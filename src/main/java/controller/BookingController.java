@@ -3,6 +3,9 @@ package controller;
 import Service.BookingService;
 import dto.BookingRequestDto;
 import dto.BookingResponseDto;
+import dto.ResponseStatus;
+import models.Booking;
+import models.BookingStatus;
 import org.springframework.stereotype.Controller;
 
 @Controller
@@ -14,7 +17,13 @@ public class BookingController {
     }
 
     public BookingResponseDto CreateBooking(BookingRequestDto bookingRequestDto){
-        return null;
+        BookingResponseDto bookingResponseDto = new BookingResponseDto();
+        Booking b = bookingService.CreateBooking(bookingRequestDto.getUserId(),
+                                                bookingRequestDto.getShowSeatsIds(),
+                                                bookingRequestDto.getShowId());
+        bookingResponseDto.setBookingId(b.getId());
+        bookingResponseDto.setResponseStatus(ResponseStatus.SUCCESS);
+        return bookingResponseDto;
     }
 
 }
