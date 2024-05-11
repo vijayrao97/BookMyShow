@@ -1,17 +1,17 @@
 package Service;
 
 
+import Repo.BookingRepo;
 import Repo.ShowRepository;
 import Repo.ShowSeatRepository;
 import Repo.UserRepository;
-import models.Booking;
-import models.Show;
-import models.ShowSeat;
-import models.User;
+import models.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,13 +20,19 @@ public class BookingService {
     private ShowRepository showRepo;
     private UserRepository userRepo;
     private ShowSeatRepository showSeatRepo;
+    private BookingRepo bookingRepo;
+    private PriceCalculator priceCalculator;
 
     public BookingService(ShowRepository showRepository,
                           UserRepository userRepository,
-                          ShowSeatRepository showSeatRepo){
+                          ShowSeatRepository showSeatRepo,
+                          BookingRepo bookingRepo,
+                          PriceCalculator priceCalculator){
         this.showRepo = showRepository;
         this.userRepo = userRepository;
         this.showSeatRepo = showSeatRepo;
+        this.bookingRepo = bookingRepo;
+        this.priceCalculator = priceCalculator;
     }
 
     @Transactional(isolation = Isolation.SERIALIZABLE)
@@ -48,20 +54,35 @@ public class BookingService {
             throw new RuntimeException("User is not present.");
         }
         User u = userOptional.get();
+
         Optional<Show> showOptional = this.showRepo.findById(userId);
         if( showOptional.isEmpty() ){
             throw new RuntimeException("Show not available");
         }
-        // Below code added by Vijay
         Show show = showOptional.get();
 
-        // TODO: complete step 3, 5, 6,7(Except save), 9
-        Optional<ShowSeat> showSeatOptional = this.showSeatRepo.findById(userId);
-        if( showSeatOptional.isEmpty() ){
-            throw new RuntimeException("showSeat is not present.");
+        List<ShowSeat> showSeats = this.showSeatRepo.findAllById(showSeat);
+        for(ShowSeat s : showSeats){
+            if( !s.getShowSeatStatus().equals(ShowSeatStatus.AVAILABLE) ){
+                throw new RuntimeException("Show seat id"+s.getId()+" is not available..");
+            }
         }
-        ShowSeat ss = showSeatOptional.get();
-        return null;
+
+        for(ShowSeat s : showSeats){
+            s.setShowSeatStatus(ShowSeatStatus.BLOCKED);
+            showSeatRepo.save(s);
+        }
+
+        Booking b = new Booking();
+        b.setBookingStatus(BookingStatus.PENDING);
+        b.setCreatedAt(new Date());
+        b.setUser(u);
+        b.setShow(show);
+        b.setPayments(new ArrayList<>());
+        b.setShowSeats(showSeats);
+        b.setAmount(priceCalculator.calculate(show,showSeats));
+        b = bookingRepo.save(b);
+        return b;
     }
 
 }
