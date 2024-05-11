@@ -11,6 +11,6 @@ import java.util.List;
 @Entity
 public class Region extends BaseClass{
     private String name;
-    @OneToMany
-    private List<Theater> theaters;
+
+//    private List<Theater> theaters;
 }
