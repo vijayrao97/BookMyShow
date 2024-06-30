@@ -1,4 +1,4 @@
-package Repo;
+package com.scaler.bookmyshow.Repo;
 
 import com.scaler.bookmyshow.models.Booking;
 import org.springframework.data.jpa.repository.JpaRepository;

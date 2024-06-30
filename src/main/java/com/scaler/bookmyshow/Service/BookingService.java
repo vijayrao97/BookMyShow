@@ -1,12 +1,12 @@
-package Service;
+package com.scaler.bookmyshow.Service;
 
 
-import Repo.BookingRepo;
-import Repo.ShowRepository;
-import Repo.ShowSeatRepository;
-import Repo.UserRepository;
+import com.scaler.bookmyshow.Repo.BookingRepo;
+import com.scaler.bookmyshow.Repo.ShowRepository;
+import com.scaler.bookmyshow.Repo.ShowSeatRepository;
+import com.scaler.bookmyshow.Repo.UserRepository;
 import com.scaler.bookmyshow.models.*;
-import models.*;
+//import models.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,4 +1,4 @@
-package models;
+package com.scaler.bookmyshow.models;
 
 import jakarta.persistence.Entity;
 import lombok.Getter;

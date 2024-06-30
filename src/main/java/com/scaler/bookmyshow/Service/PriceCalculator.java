@@ -1,6 +1,6 @@
-package Service;
+package com.scaler.bookmyshow.Service;
 
-import Repo.ShowSeatTypeRepo;
+import com.scaler.bookmyshow.Repo.ShowSeatTypeRepo;
 import com.scaler.bookmyshow.models.Show;
 import com.scaler.bookmyshow.models.ShowSeat;
 import com.scaler.bookmyshow.models.ShowSeatType;

@@ -1,9 +1,9 @@
-package controller;
+package com.scaler.bookmyshow.controller;
 
-import Service.BookingService;
-import dto.BookingRequestDto;
-import dto.BookingResponseDto;
-import dto.ResponseStatus;
+import com.scaler.bookmyshow.Service.BookingService;
+import com.scaler.bookmyshow.dto.BookingRequestDto;
+import com.scaler.bookmyshow.dto.BookingResponseDto;
+import com.scaler.bookmyshow.dto.ResponseStatus;
 import com.scaler.bookmyshow.models.Booking;
 import org.springframework.stereotype.Controller;
 

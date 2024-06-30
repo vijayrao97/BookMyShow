@@ -1,8 +1,8 @@
-package controller;
+package com.scaler.bookmyshow.controller;
 
 
-import Service.UserService;
-import dto.*;
+import com.scaler.bookmyshow.Service.UserService;
+import com.scaler.bookmyshow.dto.*;
 import com.scaler.bookmyshow.models.User;
 import org.springframework.stereotype.Controller;
 

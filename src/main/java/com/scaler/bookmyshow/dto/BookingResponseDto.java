@@ -1,4 +1,4 @@
-package dto;
+package com.scaler.bookmyshow.dto;
 
 import lombok.Getter;
 import lombok.Setter;

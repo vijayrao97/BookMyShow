@@ -1,4 +1,4 @@
-package models;
+package com.scaler.bookmyshow.models;
 
 public enum PaymentStatus {
     IN_PROGRESS,
