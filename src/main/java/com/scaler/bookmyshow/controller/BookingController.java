@@ -4,8 +4,7 @@ import Service.BookingService;
 import dto.BookingRequestDto;
 import dto.BookingResponseDto;
 import dto.ResponseStatus;
-import models.Booking;
-import models.BookingStatus;
+import com.scaler.bookmyshow.models.Booking;
 import org.springframework.stereotype.Controller;
 
 @Controller

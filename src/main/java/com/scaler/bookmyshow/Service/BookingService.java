@@ -5,6 +5,7 @@ import Repo.BookingRepo;
 import Repo.ShowRepository;
 import Repo.ShowSeatRepository;
 import Repo.UserRepository;
+import com.scaler.bookmyshow.models.*;
 import models.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;

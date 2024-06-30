@@ -1,7 +1,7 @@
 package Service;
 
 import Repo.UserRepository;
-import models.User;
+import com.scaler.bookmyshow.models.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 

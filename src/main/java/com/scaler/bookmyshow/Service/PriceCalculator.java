@@ -1,9 +1,9 @@
 package Service;
 
 import Repo.ShowSeatTypeRepo;
-import models.Show;
-import models.ShowSeat;
-import models.ShowSeatType;
+import com.scaler.bookmyshow.models.Show;
+import com.scaler.bookmyshow.models.ShowSeat;
+import com.scaler.bookmyshow.models.ShowSeatType;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -3,7 +3,7 @@ package controller;
 
 import Service.UserService;
 import dto.*;
-import models.User;
+import com.scaler.bookmyshow.models.User;
 import org.springframework.stereotype.Controller;
 
 @Controller

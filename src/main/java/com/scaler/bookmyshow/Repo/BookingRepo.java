@@ -1,6 +1,6 @@
 package Repo;
 
-import models.Booking;
+import com.scaler.bookmyshow.models.Booking;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
