@@ -10,4 +10,5 @@ import java.util.Optional;
 public interface ShowRepository extends JpaRepository<Show,Long> {
     @Override
     Optional<Show> findById(Long aLong);
+    Show save(Show s);
 }
